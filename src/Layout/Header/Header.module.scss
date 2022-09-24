@@ -1,0 +1,57 @@
+.wrapper {
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #eaebed;
+}
+
+.content {
+    width: 1024px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home {
+    display: block;
+    font-family: 'Poppins';
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 27px;
+    color: #000;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.name {
+    max-width: 120px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: right;
+}
+
+.avatar {
+    margin-left: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.search {
+    width: 343px;
+    padding: 12px 24px;
+    background-color: #eaebed;
+    border-radius: 12px;
+}
+
+.input {
+    background-color: #eaebed;
+    width: 100%;
+}

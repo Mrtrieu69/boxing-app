@@ -1,0 +1,119 @@
+.wrapper {
+    width: 1024px;
+    padding: 0 24px 60px;
+}
+
+.container {
+    margin-top: 32px;
+}
+
+.title {
+    font-weight: 900;
+    font-size: 22px;
+    line-height: 33px;
+    margin-bottom: 14px;
+}
+
+.card {
+    position: relative;
+    padding-top: 133%;
+    background-color: #0056f1;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+        //
+    }
+}
+
+.label {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 22px;
+    color: #fff;
+}
+
+.sub-label {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #cdcdcd;
+}
+
+.content {
+    position: absolute;
+    padding: 24px 8px;
+    inset: 0;
+}
+
+.image-workout {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.layout {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60.19%, #000000 166.59%);
+}
+
+.navs {
+    margin-bottom: 22px;
+}
+
+.nav {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    color: #7a7a7a;
+    padding: 12px 24px;
+    border-radius: 12px;
+    background-color: #eaebed;
+    cursor: pointer;
+
+    &:not(:last-child) {
+        margin-right: 8px;
+    }
+
+    &.active {
+        background-color: #0056f1;
+        color: #fff;
+    }
+}
+
+// Trainer
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.link {
+    display: flex;
+}
+
+.trainer-image {
+    width: 136px;
+    height: 136px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.name {
+    margin-top: 8px;
+    max-width: 80px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+}
+
+.rating {
+    margin-top: 6px;
+}
