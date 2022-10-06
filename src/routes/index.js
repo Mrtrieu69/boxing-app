@@ -1,8 +1,15 @@
-import { HomePage, TrainerPage } from '../pages';
+import { HomePage, TrainerPage, Login } from '../pages';
+import Layout from '../Layout';
 
-const PUBLIC_ROUTES = [
-    { path: '/', component: HomePage },
-    { path: '/trainer', component: TrainerPage },
+const PRIVATE_ROUTES = [
+    { path: '/', component: HomePage, layout: Layout },
+    { path: '/trainer', component: TrainerPage, layout: Layout },
+    { path: '*', component: null, layout: null, redirect: '/' },
 ];
 
-export { PUBLIC_ROUTES };
+const PUBLIC_ROUTES = [
+    { path: '/login', component: Login, layout: null },
+    { path: '*', component: null, layout: null, redirect: '/login' },
+];
+
+export { PUBLIC_ROUTES, PRIVATE_ROUTES };

@@ -21,10 +21,6 @@
     border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
-
-    &:hover {
-        //
-    }
 }
 
 .label {
@@ -98,8 +94,7 @@
 }
 
 .trainer-image {
-    width: 136px;
-    height: 136px;
+    width: 100%;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -116,4 +111,8 @@
 
 .rating {
     margin-top: 6px;
+}
+
+.start:not(:last-child) {
+    margin-right: 4px;
 }

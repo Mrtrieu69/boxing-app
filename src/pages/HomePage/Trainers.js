@@ -32,7 +32,7 @@ const Trainers = () => {
                                     .fill()
                                     .map((_, index) => {
                                         return (
-                                            <span className={'start'}>
+                                            <span key={index} className={cx('start')}>
                                                 {index + 1 <= item.rating ? <StartFill /> : <StartOuter />}
                                             </span>
                                         );
