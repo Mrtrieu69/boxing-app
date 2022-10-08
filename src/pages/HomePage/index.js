@@ -11,7 +11,7 @@ const cx = classNames.bind(styles);
 const HomePage = () => {
     return (
         <div className={cx('wrapper')}>
-            <PopularWorkouts />
+            {/* <PopularWorkouts /> */}
             <OfflineWorkouts />
             <Trainers />
         </div>

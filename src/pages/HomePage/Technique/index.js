@@ -12,26 +12,26 @@ const POPULAR_WORKOUTS = [
     { image: '/images/workouts/image-5-2.png', label: 'Способы битования', subLabel: '5 упражнений' },
     { image: '/images/workouts/image-5-3.png', label: 'Уклоны', subLabel: '5 упражнений' },
     { image: '/images/workouts/image-5-4.png', label: 'Техника ударов', subLabel: '5 упражнений' },
-    { image: '/images/workouts/image-5.png', label: 'Техника ударов', subLabel: '5 упражнений' },
-    { image: '/images/workouts/image-5-1.png', label: 'Джебы', subLabel: '5 упражнений' },
-    { image: '/images/workouts/image-5-2.png', label: 'Способы битования', subLabel: '5 упражнений' },
-    { image: '/images/workouts/image-5-3.png', label: 'Уклоны', subLabel: '5 упражнений' },
-    { image: '/images/workouts/image-5-4.png', label: 'Техника ударов', subLabel: '5 упражнений' },
+    // { image: '/images/workouts/image-5.png', label: 'Техника ударов', subLabel: '5 упражнений' },
+    // { image: '/images/workouts/image-5-1.png', label: 'Джебы', subLabel: '5 упражнений' },
+    // { image: '/images/workouts/image-5-2.png', label: 'Способы битования', subLabel: '5 упражнений' },
+    // { image: '/images/workouts/image-5-3.png', label: 'Уклоны', subLabel: '5 упражнений' },
+    // { image: '/images/workouts/image-5-4.png', label: 'Техника ударов', subLabel: '5 упражнений' },
 ];
 
 const Technique = () => {
-    const [showMore, setShowMore] = useState(false);
-    const [currentList, setCurrentList] = useState(POPULAR_WORKOUTS.slice(0, 5));
+    // const [showMore, setShowMore] = useState(false);
+    // const [currentList, setCurrentList] = useState(POPULAR_WORKOUTS.slice(0, 5));
 
-    const handleShowMore = () => {
-        setShowMore(true);
-        setCurrentList(POPULAR_WORKOUTS);
-    };
+    // const handleShowMore = () => {
+    //     setShowMore(true);
+    //     setCurrentList(POPULAR_WORKOUTS);
+    // };
 
     return (
         <>
             <div className="row">
-                {currentList.map((item, id) => (
+                {POPULAR_WORKOUTS.map((item, id) => (
                     <div key={id} className="col l-2-4">
                         <div className={cx('card')} style={{ backgroundImage: `url(${item.image})` }}>
                             <div className={cx('body')}>
@@ -42,13 +42,13 @@ const Technique = () => {
                     </div>
                 ))}
             </div>
-            <div className={cx('block')}>
+            {/* <div className={cx('block')}>
                 {!showMore && (
                     <button onClick={handleShowMore} className={cx('control')}>
                         еще
                     </button>
                 )}
-            </div>
+            </div> */}
         </>
     );
 };

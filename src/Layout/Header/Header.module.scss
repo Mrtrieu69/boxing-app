@@ -36,6 +36,7 @@
 }
 
 .avatar {
+    position: relative;
     margin-left: 8px;
     width: 36px;
     height: 36px;
@@ -54,4 +55,32 @@
 .input {
     background-color: #eaebed;
     width: 100%;
+}
+
+.box {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 8px 0px;
+    margin: 0px;
+    min-width: 180px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.icon {
+    display: inline-flex;
+    margin-right: 8px;
 }
