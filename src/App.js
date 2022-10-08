@@ -10,8 +10,8 @@ import { Loader } from './components';
 export const LoginContext = createContext();
 
 const config = {
-    apiKey: 'AIzaSyBhAg4y0q3AR1zgJs2UVlMPDfzjbrCFp7w',
-    authDomain: 'boxapp-17db5.firebaseapp.com',
+    apiKey: 'AIzaSyBFmN7uz2tCkKM3XRtDQpyk22gEIJvp9cc',
+    authDomain: 'boxapp-10bf7.firebaseapp.com',
 };
 firebase.initializeApp(config);
 
