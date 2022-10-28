@@ -2,7 +2,9 @@ import { createContext, Fragment, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
+import { ToastContainer } from 'react-toastify';
 import 'firebase/compat/auth';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from './routes';
 import { Loader } from './components';
@@ -55,6 +57,7 @@ function App() {
                         );
                     })}
                 </Routes>
+                <ToastContainer />
             </div>
         </LoginContext.Provider>
     );

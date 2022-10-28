@@ -7,6 +7,7 @@ import Tippy from '@tippyjs/react/headless';
 import { FiLogOut } from 'react-icons/fi';
 
 import styles from './Header.module.scss';
+import { Search } from '../../components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -31,6 +32,9 @@ const Header = () => {
                 </Link>
                 <div className={cx('search')}>
                     <input type="text" placeholder="Search" className={cx('input')} />
+                    <span className={cx('icon-search')}>
+                        <Search />
+                    </span>
                 </div>
                 <div className={cx('user')}>
                     <p className={cx('name')}>{currentUser.multiFactor.user.displayName}</p>

@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
 
 import styles from './HomePage.module.scss';
 import { StartFill, StartOuter } from '../../components/Icons';
@@ -23,9 +22,9 @@ const Trainers = () => {
                 {TRAINERS.map((item, id) => (
                     <div key={id} className="col l-2-4">
                         <div className={cx('info')}>
-                            <Link to="/trainer" className={cx('link')}>
+                            <div className={cx('trainer-card')}>
                                 <img src={item.image} alt="" className={cx('trainer-image')} />
-                            </Link>
+                            </div>
                             <p className={cx('name')}>{item.name}</p>
                             <div className={cx('rating')}>
                                 {Array(5)

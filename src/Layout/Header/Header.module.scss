@@ -46,10 +46,34 @@
 }
 
 .search {
-    width: 343px;
+    display: flex;
+    width: 330px;
     padding: 12px 24px;
     background-color: #eaebed;
     border-radius: 12px;
+    position: relative;
+}
+
+.icon-search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 0 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon-search::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 60%;
+    border-left: 1px solid #989898;
 }
 
 .input {
@@ -59,7 +83,7 @@
 
 .box {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 22px;
     padding: 8px 0px;
     margin: 0px;

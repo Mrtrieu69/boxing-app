@@ -1,9 +1,10 @@
-import { HomePage, TrainerPage, Login } from '../pages';
+import { HomePage, TrainerPage, Login, CoursePage } from '../pages';
 import Layout from '../Layout';
 
 const PRIVATE_ROUTES = [
     { path: '/', component: HomePage, layout: Layout },
     { path: '/trainer', component: TrainerPage, layout: Layout },
+    { path: '/courses/:idCourse', component: CoursePage, layout: Layout },
     { path: '*', component: null, layout: null, redirect: '/' },
 ];
 

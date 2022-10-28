@@ -1,19 +1,14 @@
 .card {
-    background-size: 105%;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: background-size 0.3s linear;
     position: relative;
-    padding-top: 133%;
     background-color: #0056f1;
     border-radius: 16px;
     overflow: hidden;
     cursor: pointer;
     margin-bottom: 24px;
-
-    &:hover {
-        background-size: 110%;
-    }
+    display: flex;
+    width: 100%;
+    height: 234px;
+    user-select: none;
 }
 
 .body {
@@ -51,4 +46,40 @@
     color: #7a7a7a;
     background-color: #eaebed;
     cursor: pointer;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #b8b8b8;
+}
+
+.loader::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), transparent);
+    animation: loading 1s infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
