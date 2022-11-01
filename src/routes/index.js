@@ -4,7 +4,7 @@ import Layout from '../Layout';
 const PRIVATE_ROUTES = [
     { path: '/', component: HomePage, layout: Layout },
     { path: '/trainer', component: TrainerPage, layout: Layout },
-    { path: '/courses/:idCourse', component: CoursePage, layout: Layout },
+    { path: '/courses/:courseId', component: CoursePage, layout: Layout },
     { path: '*', component: null, layout: null, redirect: '/' },
 ];
 

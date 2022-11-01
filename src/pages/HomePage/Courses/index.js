@@ -13,10 +13,15 @@ const Courses = () => {
 
     useEffect(() => {
         const getCourses = async () => {
-            const data = await axiosClient.get('/GetCourse/?format=json');
-            const courses = data.data;
-            setCourses(courses);
-            setIsLoading(false);
+            try {
+                const data = await axiosClient.get('/GetCourse/?format=json');
+                const courses = data.data;
+
+                setCourses(courses);
+                setIsLoading(false);
+            } catch (e) {
+                console.log(e);
+            }
         };
         getCourses();
     }, []);

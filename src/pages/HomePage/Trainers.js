@@ -1,31 +1,42 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import { useState, useEffect } from 'react';
 
 import styles from './HomePage.module.scss';
 import { StartFill, StartOuter } from '../../components/Icons';
+import axiosClient from '../../api/axiosClient';
 
 const cx = classNames.bind(styles);
 
-const TRAINERS = [
-    { name: 'Александр Комаров', image: '/images/trainers/trainer.png', rating: 4 },
-    { name: 'Александр Комаров', image: '/images/trainers/trainer.png', rating: 1 },
-    { name: 'Александр Комаров', image: '/images/trainers/trainer.png', rating: 2 },
-    { name: 'Александр Комаров', image: '/images/trainers/trainer.png', rating: 3 },
-    { name: 'Александр Комаров', image: '/images/trainers/trainer.png', rating: 4 },
-];
-
 const Trainers = () => {
+    const [data, setData] = useState();
+
+    useEffect(() => {
+        const getTrainers = async () => {
+            try {
+                const data = await axiosClient.get('/GetTrainer?format=json');
+                console.log(data.data);
+                setData(data.data);
+            } catch (e) {
+                console.log(e);
+            }
+        };
+
+        getTrainers();
+    }, []);
     return (
         <div className={cx('container')}>
             <h2 className={cx('title')}>Тренеры</h2>
             <div className="row">
-                {TRAINERS.map((item, id) => (
+                {data?.map((item, id) => (
                     <div key={id} className="col l-2-4">
                         <div className={cx('info')}>
                             <div className={cx('trainer-card')}>
-                                <img src={item.image} alt="" className={cx('trainer-image')} />
+                                <img src={item.photo_url} alt="" className={cx('trainer-image')} />
                             </div>
-                            <p className={cx('name')}>{item.name}</p>
+                            <p className={cx('name')}>
+                                {item.name} {item.patronymic}
+                            </p>
                             <div className={cx('rating')}>
                                 {Array(5)
                                     .fill()

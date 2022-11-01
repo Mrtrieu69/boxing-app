@@ -1,6 +1,6 @@
 .wrapper {
     width: 1024px;
-    padding: 0 24px 60px;
+    padding: 0 24px 0;
 }
 
 .container {
@@ -92,10 +92,11 @@
 .trainer-card {
     display: flex;
     cursor: pointer;
+    justify-content: center;
 }
 
 .trainer-image {
-    width: 100%;
+    width: 80%;
     border-radius: 50%;
     object-fit: cover;
 }
