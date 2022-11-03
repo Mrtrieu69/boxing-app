@@ -101,6 +101,14 @@
     object-fit: cover;
 }
 
+.trainer-image-loader {
+    width: 80%;
+    padding-top: 80%;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
 .name {
     margin-top: 8px;
     max-width: 80px;
@@ -117,4 +125,25 @@
 
 .start:not(:last-child) {
     margin-right: 4px;
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #b8b8b8;
+}
+
+.loader::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), transparent);
+    animation: loading 1s infinite;
 }

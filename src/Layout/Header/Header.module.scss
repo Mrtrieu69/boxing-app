@@ -19,7 +19,7 @@
     font-weight: 900;
     font-size: 24px;
     line-height: 27px;
-    color: #000;
+    color: var(--text-primary);
 }
 
 .user {
@@ -28,6 +28,7 @@
 }
 
 .name {
+    min-width: 96px;
     max-width: 120px;
     font-weight: 400;
     font-size: 14px;
@@ -47,7 +48,7 @@
 
 .search {
     display: flex;
-    width: 330px;
+    width: 360px;
     padding: 12px 24px;
     background-color: #eaebed;
     border-radius: 12px;
@@ -78,7 +79,7 @@
 
 .input {
     background-color: #eaebed;
-    width: 100%;
+    width: 90%;
 }
 
 .box {
@@ -98,9 +99,10 @@
     align-items: center;
     padding: 8px 16px;
     cursor: pointer;
+    color: #000;
 
     &:hover {
-        background: rgba(22, 24, 35, 0.03);
+        background: rgba(22, 24, 35, 0.05);
     }
 }
 

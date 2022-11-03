@@ -1,0 +1,103 @@
+.wrapper {
+    padding: 0 24px;
+    width: 1024px;
+}
+
+.navs {
+    cursor: default;
+    display: flex;
+    padding: 8px 0;
+    align-items: center;
+}
+
+.nav {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.icon {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    position: relative;
+}
+
+.layout {
+    position: absolute;
+    filter: blur(95px);
+    width: 280px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: rgba(234, 235, 237, 0.35);
+}
+
+.top {
+    top: -30px;
+    right: -30px;
+}
+
+.mid {
+    top: 50%;
+    transform: translateY(-50%);
+    left: -30px;
+}
+
+.bot {
+    bottom: -30px;
+    right: -30px;
+}
+
+.slider {
+    position: relative;
+    width: 390px;
+    height: 590px;
+    overflow: hidden;
+}
+
+.list {
+    display: flex;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.item {
+    flex-shrink: 0;
+    padding: 0 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.prev,
+.next {
+    width: 80px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #b7b7b7;
+
+    &.disable {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}

@@ -1,3 +1,10 @@
+:root {
+    --text-primary: #000;
+    --text-primary-active: #0056f1;
+    --bg-primary: #fff;
+    --bg-btn: #000;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +14,7 @@
 html {
     font-family: 'SF Pro Text';
     font-size: 62.5%;
+    color: var(--text-primary);
 }
 
 html *::-webkit-scrollbar {
@@ -283,4 +291,28 @@ a[href] {
     .c-12 {
         width: 100%;
     }
+}
+
+// Overwrite google form
+#firebaseui_container {
+    overflow: hidden;
+    display: flex;
+    width: 330px;
+    justify-content: center;
+    height: 110px;
+    align-items: center;
+    box-shadow: 20px 20px 26px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.firebaseui-idp-button.mdl-button--raised {
+    background-color: #fff;
+    box-shadow: none;
+    border: 1px solid #818181;
+    border-radius: 12px;
+    max-width: 250px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
 }

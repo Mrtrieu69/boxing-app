@@ -8,11 +8,13 @@ import { FiLogOut } from 'react-icons/fi';
 
 import styles from './Header.module.scss';
 import { Search } from '../../components/Icons';
+import { useRef } from 'react';
 
 const cx = classNames.bind(styles);
 
 const Header = () => {
     const currentUser = firebase.auth().currentUser;
+    const imageRef = useRef();
 
     const renderResult = (attrs) => (
         <div className={cx('box')} tabIndex="-1" {...attrs}>
@@ -24,6 +26,10 @@ const Header = () => {
             </div>
         </div>
     );
+
+    const handleError = () => {
+        imageRef.current.src = '/images/users/default.png';
+    };
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
@@ -39,7 +45,13 @@ const Header = () => {
                 <div className={cx('user')}>
                     <p className={cx('name')}>{currentUser.multiFactor.user.displayName}</p>
                     <Tippy placement="bottom-end" interactive delay={[0, 700]} render={renderResult}>
-                        <img src={currentUser.multiFactor.user.photoURL} alt="" className={cx('avatar')} />
+                        <img
+                            ref={imageRef}
+                            src={currentUser.multiFactor.user.photoURL}
+                            onError={handleError}
+                            alt=""
+                            className={cx('avatar')}
+                        />
                     </Tippy>
                 </div>
             </div>

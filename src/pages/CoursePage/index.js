@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axiosClient from '../../api/axiosClient';
 
-import { Heart } from '../../components/Icons';
 import styles from './CoursePage.module.scss';
+import { ArrowRight, Heart } from '../../components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -37,13 +37,16 @@ const CoursePage = () => {
 
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('nav')}>
-                <Link to="/" className={cx('start')}>
-                    Начать тренировки
-                </Link>
-                <Link to="/" className={cx('all')}>
-                    Все тренировки
-                </Link>
+            <div className={cx('navs')}>
+                <p className={cx('nav')}>Главная</p>
+                <span className={cx('icon')}>
+                    <ArrowRight />
+                </span>
+                <p className={cx('nav')}>{data?.title}</p>
+                <span className={cx('icon')}>
+                    <ArrowRight />
+                </span>
+                <p className={cx('nav')}>{data?.trainings[currentTraining - 1].title}</p>
             </div>
             <div className={cx('content')}>
                 <div className={cx('sidebar')}>
@@ -53,7 +56,6 @@ const CoursePage = () => {
                             {data?.trainer.name} {data?.trainer.patronymic}
                         </h3>
                     </div>
-
                     <div className={cx('container')}>
                         <div className={cx('list')}>
                             {data?.trainings.map((training) => (
@@ -76,18 +78,23 @@ const CoursePage = () => {
                     </div>
                 </div>
                 <div className={cx('main')}>
-                    <video
-                        ref={videoRef}
-                        poster={data?.trainings[currentTraining - 1].photo_url}
-                        className={cx('video')}
-                        width="350"
-                        height="560"
-                        controls
-                    >
+                    <div className={cx('like')}>
+                        <div className={cx('icon-heart')}>
+                            <Heart />
+                        </div>
+                        <p className={cx('quantity')}>{data?.trainings[currentTraining - 1].likes}</p>
+                    </div>
+                    <video ref={videoRef} className={cx('video')} controls>
                         <source src={data?.trainings[currentTraining - 1].exercises[0].video_url} type="video/mp4" />
                     </video>
+                    <div className={cx('label')}>{data?.trainings[currentTraining - 1].title}</div>
                 </div>
-                <div className={cx('info')}>{data?.trainings[currentTraining - 1].description}</div>
+                <div className={cx('info')}>
+                    <div className={cx('description')}>{data?.trainings[currentTraining - 1].description}</div>
+                    <Link to={`/courses/${data?.id}/practice/${currentTraining}`} className={cx('start')}>
+                        Начать тренировки
+                    </Link>
+                </div>
             </div>
         </div>
     );

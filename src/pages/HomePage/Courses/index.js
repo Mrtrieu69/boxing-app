@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import styles from './Courses.module.scss';
 import axiosClient from '../../../api/axiosClient';
 import Course from './Course';
+import { LoaderBox } from '../../../components';
 
 const cx = classNames.bind(styles);
 
@@ -29,12 +30,12 @@ const Courses = () => {
     if (isLoading)
         return (
             <div className="row">
-                {Array(5)
+                {Array(4)
                     .fill()
                     .map((_, id) => (
                         <div key={id} className="col l-2-4">
                             <div className={cx('card')}>
-                                <div className={cx('loader')}></div>
+                                <LoaderBox />
                             </div>
                         </div>
                     ))}
