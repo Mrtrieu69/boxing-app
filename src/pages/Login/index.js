@@ -20,6 +20,7 @@ const Login = () => {
                 <div className={cx('login')}>
                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
                     <h1 className={cx('name')}>BoxingApp</h1>
+                    <img className={cx('gloves')} src="/images/login/gloves.png" alt="" />
                 </div>
                 <figure className={cx('banner')}>
                     <img className={cx('image')} src="/images/login/login.png" alt="" />

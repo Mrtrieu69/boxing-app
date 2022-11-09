@@ -5,12 +5,14 @@ import styles from './Courses.module.scss';
 import axiosClient from '../../../api/axiosClient';
 import Course from './Course';
 import { LoaderBox } from '../../../components';
+import ErrorServer from '../../ErrorServer';
 
 const cx = classNames.bind(styles);
 
 const Courses = () => {
     const [courses, setCourses] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [errorServer, setErrorServer] = useState(false);
 
     useEffect(() => {
         const getCourses = async () => {
@@ -21,11 +23,17 @@ const Courses = () => {
                 setCourses(courses);
                 setIsLoading(false);
             } catch (e) {
+                setErrorServer(true);
+                setIsLoading(false);
                 console.log(e);
             }
         };
         getCourses();
     }, []);
+
+    if (errorServer) {
+        return <ErrorServer />;
+    }
 
     if (isLoading)
         return (

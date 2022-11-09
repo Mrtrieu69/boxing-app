@@ -1,6 +1,5 @@
 .wrapper {
     padding: 0 24px;
-    width: 1024px;
 }
 
 .navs {
@@ -25,6 +24,7 @@
     &.active {
         color: var(--text-primary);
         cursor: default;
+        user-select: none;
     }
 }
 
@@ -131,7 +131,7 @@
 
 .timer {
     padding: 12px;
-    width: 250px;
+    width: 300px;
     min-height: 160px;
     color: black;
     border: 2px solid #fff;
@@ -156,6 +156,17 @@
     color: #000;
 }
 
+.controllers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 18px;
+
+    &.done {
+        justify-content: space-between;
+    }
+}
+
 .controller {
     cursor: pointer;
     min-width: 75px;
@@ -163,7 +174,6 @@
     font-weight: 700;
     font-size: 12px;
     border-radius: 999px;
-    margin-top: 18px;
     border: 2px solid #000000;
 }
 
@@ -294,7 +304,7 @@
         font-weight: 700;
         font-size: 12px;
         border: 2px solid #d0cece;
-        border-radius: 16px;
+        border-radius: 999px;
         padding: 8px 12px;
         color: #d0cece;
         background-color: #fff;

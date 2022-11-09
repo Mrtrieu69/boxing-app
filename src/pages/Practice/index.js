@@ -9,6 +9,7 @@ import { LoaderBox } from '../../components';
 import { ArrowLeftLarge, ArrowRightLarge } from '../../components/Icons';
 import Timer from './Timer';
 import EndExercises from './EndExercises';
+import ErrorEvent from '../ErrorServer';
 
 const cx = classNames.bind(styles);
 
@@ -23,9 +24,14 @@ const Practice = () => {
     // For timer
     const [isTimerActive, setIsTimerActive] = useState(false);
 
+    // Error Server
+    const [errorServer, setErrorServer] = useState(false);
+
     const listRef = useRef();
 
     const handleCloseTimer = () => setIsTimerActive(false);
+
+    const handleNextExercise = () => setCurrentExercise(currentExercise + 1);
 
     useEffect(() => {
         setVideoRefs((refs) =>
@@ -47,6 +53,7 @@ const Practice = () => {
                 setData(data.data);
                 setIsLoading(false);
             } catch (e) {
+                setErrorServer(true);
                 setIsLoading(false);
                 console.log(e);
             }
@@ -81,6 +88,10 @@ const Practice = () => {
                 return;
             }, 500);
     }, [currentExercise, videoRefs]);
+
+    if (errorServer) {
+        return <ErrorEvent />;
+    }
 
     return (
         <div className={cx('wrapper')}>
@@ -156,7 +167,7 @@ const Practice = () => {
                             to={`/courses/${courseId}/trainings/${trainingId}`}
                         />
                     </div>
-                    {isTimerActive && <Timer duration={60} onClose={handleCloseTimer} />}
+                    {isTimerActive && <Timer onNext={handleNextExercise} duration={60} onClose={handleCloseTimer} />}
                 </div>
             </div>
         </div>

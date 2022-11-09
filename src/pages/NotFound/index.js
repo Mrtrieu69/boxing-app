@@ -40,7 +40,7 @@ const NotFound = () => {
                         </div>
                     </div>
                     <div className={cx('body')}>
-                        <img src="/images/notion/error-404.png" className={cx('error-image')} alt="" />
+                        <img src="/images/notion/error.png" className={cx('error-image')} alt="" />
                     </div>
                 </div>
             </div>

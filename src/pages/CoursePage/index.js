@@ -6,12 +6,14 @@ import axiosClient from '../../api/axiosClient';
 
 import styles from './CoursePage.module.scss';
 import { ArrowRight, Heart } from '../../components/Icons';
+import ErrorServer from '../ErrorServer';
 
 const cx = classNames.bind(styles);
 
 const CoursePage = () => {
     const { courseId, trainingId } = useParams();
-    const [data, setData] = useState();
+    const [data, setData] = useState(null);
+    const [errorServer, setErrorServer] = useState(false);
 
     const videoRef = useRef();
 
@@ -21,6 +23,7 @@ const CoursePage = () => {
                 const data = await axiosClient.get(`/GetCourse/${courseId}?format=json`);
                 setData(data.data);
             } catch (e) {
+                setErrorServer(true);
                 console.log(e);
             }
         };
@@ -33,6 +36,10 @@ const CoursePage = () => {
             videoRef.current.load();
         }
     }, [trainingId, data]);
+
+    if (errorServer) {
+        return <ErrorServer />;
+    }
 
     return (
         <div className={cx('wrapper')}>

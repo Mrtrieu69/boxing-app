@@ -20,6 +20,7 @@ firebase.initializeApp(config);
 function App() {
     const [isSignedIn, setIsSignedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
+    const [resize, setResize] = useState(() => window.innerWidth);
 
     const ROUTES = isSignedIn ? PRIVATE_ROUTES : PUBLIC_ROUTES;
     useEffect(() => {
@@ -32,7 +33,14 @@ function App() {
     }, []);
 
     useEffect(() => {
+        const handleResize = () => {
+            setResize(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
         setTimeout(() => setIsLoading(false), 1000);
+
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     if (isLoading) {
@@ -60,6 +68,21 @@ function App() {
                 </Routes>
                 <ToastContainer />
             </div>
+            {resize <= 764 && (
+                <div className="notion">
+                    <div className="notion-text-left">Скачивай удобное приложение для своего телефона</div>
+                    <div className="notion-text-right">И продолжай обучение вдали от компьютера</div>
+                    <img src="/images/notion/mobile.png" className="mobile" alt="" />
+                    <div className="notion-btns">
+                        <a href="/#!" className="notion-btn">
+                            <img src="/images/notion/apple.png" alt="" />
+                        </a>
+                        <a href="/#!" className="notion-btn">
+                            <img src="/images/notion/google.png" alt="" />
+                        </a>
+                    </div>
+                </div>
+            )}
         </LoginContext.Provider>
     );
 }

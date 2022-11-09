@@ -8,7 +8,7 @@ import { Modal } from '../../components';
 
 const cx = classNames.bind(styles);
 
-const Timer = ({ onClose, duration }) => {
+const Timer = ({ onNext, onClose, duration }) => {
     const [seconds, setSeconds] = useState(() => parseInt(duration));
 
     const timer = useRef();
@@ -52,9 +52,16 @@ const Timer = ({ onClose, duration }) => {
                         <div className={cx('dot')}></div>
                     </div>
                 </div>
-                <button onClick={handleStopTimer} className={cx('controller')}>
-                    Заново
-                </button>
+                <div className={cx('controllers', { done: seconds === 0 })}>
+                    <button onClick={handleStopTimer} className={cx('controller')}>
+                        Заново
+                    </button>
+                    {seconds === 0 && (
+                        <button onClick={onNext} className={cx('controller')}>
+                            Следующее упражнение
+                        </button>
+                    )}
+                </div>
             </div>
         </Modal>
     );
