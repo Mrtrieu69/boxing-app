@@ -15,11 +15,11 @@ if (!modalRoot) {
     modalRoot = modalRootDiv;
 }
 
-const Modal = ({ onClose }) => {
+const Modal = ({ onClose, trainer, children }) => {
     return createPortal(
         <div className={cx('modal')}>
             <div onClick={onClose} className={cx('layout')}></div>
-            <div className={cx('content')}></div>
+            <div className={cx('content', { trainer })}>{children}</div>
         </div>,
         modalRoot,
     );

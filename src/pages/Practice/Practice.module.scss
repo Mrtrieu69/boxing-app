@@ -11,9 +11,21 @@
 }
 
 .nav {
+    display: inline-block;
+    cursor: pointer;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
+    color: var(--text-primary);
+
+    &:hover {
+        color: #0056f1;
+    }
+
+    &.active {
+        color: var(--text-primary);
+        cursor: default;
+    }
 }
 
 .icon {
@@ -22,6 +34,7 @@
 }
 
 .container {
+    position: relative;
     margin-top: 20px;
     display: flex;
     justify-content: center;
@@ -59,7 +72,7 @@
 
 .slider {
     position: relative;
-    width: 390px;
+    width: 400px;
     height: 590px;
     overflow: hidden;
 }
@@ -88,6 +101,7 @@
 
 .prev,
 .next {
+    position: relative;
     width: 80px;
     height: 50px;
     display: flex;
@@ -95,9 +109,283 @@
     align-items: center;
     cursor: pointer;
     color: #b7b7b7;
+    z-index: 10;
 
     &.disable {
         pointer-events: none;
         opacity: 0.5;
+    }
+}
+
+// Timer
+.panel {
+    width: 250px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+}
+
+.timer {
+    padding: 12px;
+    width: 250px;
+    min-height: 160px;
+    color: black;
+    border: 2px solid #fff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer-block {
+    position: relative;
+    display: flex;
+}
+
+.timer-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    font-size: 22px;
+    color: #000;
+}
+
+.controller {
+    cursor: pointer;
+    min-width: 75px;
+    padding: 8px;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 999px;
+    margin-top: 18px;
+    border: 2px solid #000000;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start,
+.end {
+    display: inline-block;
+    min-width: 230px;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid #fff;
+    border-radius: 16px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #000;
+    color: #fff;
+}
+
+.start {
+    background-color: #fff;
+    color: #000;
+    margin-bottom: 14px;
+}
+
+.warning {
+    width: 420px;
+    padding: 20px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+}
+
+.warning-text {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.btns {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        min-width: 130px;
+        border-radius: 999px;
+        cursor: pointer;
+        padding: 8px 12px;
+        background-color: #000;
+        color: white;
+        margin: 0 8px;
+        display: flex;
+        justify-content: center;
+        font-weight: 700;
+        border: 2px solid #000000;
+        font-size: 12px;
+    }
+
+    .btn-yes {
+        background-color: #fff;
+        color: #000;
+        border: 2px solid #000000;
+    }
+}
+
+.svg {
+    position: absolute;
+    width: 94px;
+    height: 94px;
+    transform: rotate(270deg);
+
+    circle {
+        width: 100%;
+        height: 100%;
+        fill: transparent;
+        stroke: black;
+        stroke-width: 4;
+        transform: translate(2px, 2px);
+        stroke-dasharray: 284;
+        transition: stroke-dashoffset 1s linear;
+    }
+}
+
+.dot-block {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    transition: transform 1s linear;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: black;
+    transform: translateY(-30%);
+}
+
+.congratulation {
+    position: relative;
+    padding: 20px;
+    width: 320px;
+    background-color: #fff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    button {
+        display: flex;
+        margin-top: 10px;
+        font-weight: 700;
+        font-size: 12px;
+        border: 2px solid #d0cece;
+        border-radius: 16px;
+        padding: 8px 12px;
+        color: #d0cece;
+        background-color: #fff;
+        cursor: pointer;
+    }
+}
+
+.congratulation::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    width: 150%;
+    height: 150%;
+    border-radius: 50%;
+    background: linear-gradient(90deg, blue, rgb(204, 192, 255));
+}
+
+.congratulation-image {
+    position: relative;
+    z-index: 10;
+    width: 160px;
+    height: 160px;
+    margin-top: 20px;
+}
+
+.congratulation-title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000;
+}
+
+.congratulation-label {
+    margin-top: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 15px;
+    color: #d0cece;
+}
+
+.confetti {
+    position: absolute;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    z-index: 20;
+    user-select: none;
+
+    &.confetti-slow {
+        animation: confetti-slow 4s linear;
+    }
+
+    &.confetti-medium {
+        border-radius: 50%;
+        animation: confetti-medium 3s linear;
+    }
+
+    &.confetti-fast {
+        animation: confetti-fast 2s linear;
+    }
+}
+
+@keyframes confetti-slow {
+    0% {
+        transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+    }
+
+    100% {
+        transform: translate3d(25px, 105vh, 0) rotateX(360deg) rotateY(180deg);
+    }
+}
+
+@keyframes confetti-medium {
+    0% {
+        transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+    }
+
+    100% {
+        transform: translate3d(100px, 105vh, 0) rotateX(100deg) rotateY(360deg);
+    }
+}
+
+@keyframes confetti-fast {
+    0% {
+        transform: translate3d(0, 0, 0) rotateX(0) rotateY(0);
+    }
+
+    100% {
+        transform: translate3d(-50px, 105vh, 0) rotateX(10deg) rotateY(250deg);
     }
 }

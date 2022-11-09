@@ -147,3 +147,112 @@
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), transparent);
     animation: loading 1s infinite;
 }
+
+.trainer-layout {
+    position: relative;
+    height: 170px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blur {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.trainer-avatar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -40px;
+    width: 133px;
+    height: 133px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fff;
+}
+
+.trainer-name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 18px;
+    font-size: 20px;
+    color: #d9d9d9;
+    font-weight: 700;
+    text-align: center;
+}
+
+.feature {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(50%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.inbox {
+    cursor: pointer;
+    background: #ffffff;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 112px;
+    padding: 8px 12px;
+    color: #7a7a7a;
+    margin-left: 60px;
+}
+
+.follow {
+    cursor: pointer;
+    background: #0056f1;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 112px;
+    padding: 8px 12px;
+    color: #fff;
+    margin-right: 60px;
+}
+
+.trainer-block {
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.statistics {
+    display: flex;
+    justify-content: space-around;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.type {
+    color: #7a7a7a;
+}
+
+.desc {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.about {
+    color: #7a7a7a;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+}
+
+.social {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}

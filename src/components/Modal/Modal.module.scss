@@ -4,18 +4,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 999;
 }
 
 .layout {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.75);
+    animation: fade 0.3s ease;
 }
 
 .content {
     position: relative;
-    width: 70%;
-    height: 70%;
-    background-color: gray;
     border-radius: 20px;
+    overflow: hidden;
+    animation: zoom-out 0.3s ease;
+    background-color: #eaebed;
+}
+
+.trainer {
+    width: 600px;
+    min-height: 435px;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes zoom-out {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
 }

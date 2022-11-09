@@ -10,9 +10,8 @@ import { ArrowRight, Heart } from '../../components/Icons';
 const cx = classNames.bind(styles);
 
 const CoursePage = () => {
-    const { courseId } = useParams();
+    const { courseId, trainingId } = useParams();
     const [data, setData] = useState();
-    const [currentTraining, setCurrentTraining] = useState(1);
 
     const videoRef = useRef();
 
@@ -33,20 +32,26 @@ const CoursePage = () => {
         if (videoRef) {
             videoRef.current.load();
         }
-    }, [currentTraining, data]);
+    }, [trainingId, data]);
 
     return (
         <div className={cx('wrapper')}>
             <div className={cx('navs')}>
-                <p className={cx('nav')}>Главная</p>
+                <Link to="/" className={cx('nav')}>
+                    Главная
+                </Link>
                 <span className={cx('icon')}>
                     <ArrowRight />
                 </span>
-                <p className={cx('nav')}>{data?.title}</p>
+                <Link to={`/courses/${courseId}/trainings/1`} className={cx('nav')}>
+                    {data?.title}
+                </Link>
                 <span className={cx('icon')}>
                     <ArrowRight />
                 </span>
-                <p className={cx('nav')}>{data?.trainings[currentTraining - 1].title}</p>
+                <p className={cx('nav', 'active')}>
+                    {data?.trainings.find((training) => parseInt(trainingId) === training.id).title}
+                </p>
             </div>
             <div className={cx('content')}>
                 <div className={cx('sidebar')}>
@@ -59,10 +64,10 @@ const CoursePage = () => {
                     <div className={cx('container')}>
                         <div className={cx('list')}>
                             {data?.trainings.map((training) => (
-                                <div
+                                <Link
                                     key={training.id}
-                                    onClick={() => setCurrentTraining(training.id)}
-                                    className={cx('item', { active: currentTraining === training.id })}
+                                    to={`/courses/${courseId}/trainings/${training.id}`}
+                                    className={cx('item', { active: parseInt(trainingId) === training.id })}
                                 >
                                     <div className={cx('item-left')}>{training.id}</div>
                                     <div className={cx('item-right')}>
@@ -72,7 +77,7 @@ const CoursePage = () => {
                                             <div className={cx('time')}>3 минуты</div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -82,17 +87,30 @@ const CoursePage = () => {
                         <div className={cx('icon-heart')}>
                             <Heart />
                         </div>
-                        <p className={cx('quantity')}>{data?.trainings[currentTraining - 1].likes}</p>
+                        <p className={cx('quantity')}>
+                            {data?.trainings.find((training) => parseInt(trainingId) === training.id).likes}
+                        </p>
                     </div>
                     <video ref={videoRef} className={cx('video')} controls>
-                        <source src={data?.trainings[currentTraining - 1].exercises[0].video_url} type="video/mp4" />
+                        <source
+                            src={
+                                data?.trainings
+                                    .find((training) => parseInt(trainingId) === training.id)
+                                    .exercises.find((exercise) => exercise.exercise_type === 0).video_url
+                            }
+                            type="video/mp4"
+                        />
                     </video>
-                    <div className={cx('label')}>{data?.trainings[currentTraining - 1].title}</div>
+                    <div className={cx('label')}>
+                        {data?.trainings.find((training) => parseInt(trainingId) === training.id).title}
+                    </div>
                 </div>
                 <div className={cx('info')}>
-                    <div className={cx('description')}>{data?.trainings[currentTraining - 1].description}</div>
-                    <Link to={`/courses/${data?.id}/practice/${currentTraining}`} className={cx('start')}>
-                        Начать тренировки
+                    <div className={cx('description')}>
+                        {data?.trainings.find((training) => parseInt(trainingId) === training.id).description}
+                    </div>
+                    <Link to={`/courses/${courseId}/trainings/${trainingId}/practice`} className={cx('start')}>
+                        Начать тренировку
                     </Link>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, createRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 
 import styles from './Practice.module.scss';
@@ -7,17 +7,25 @@ import { ArrowRight } from '../../components/Icons';
 import axiosClient from '../../api/axiosClient';
 import { LoaderBox } from '../../components';
 import { ArrowLeftLarge, ArrowRightLarge } from '../../components/Icons';
+import Timer from './Timer';
+import EndExercises from './EndExercises';
 
 const cx = classNames.bind(styles);
 
 const Practice = () => {
-    const { courseId, practiceId } = useParams();
+    const { courseId, trainingId } = useParams();
     const [data, setData] = useState();
     const [exercises, setExercises] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [currentExercise, setCurrentExercise] = useState(0);
     const [videoRefs, setVideoRefs] = useState([]);
+
+    // For timer
+    const [isTimerActive, setIsTimerActive] = useState(false);
+
     const listRef = useRef();
+
+    const handleCloseTimer = () => setIsTimerActive(false);
 
     useEffect(() => {
         setVideoRefs((refs) =>
@@ -32,8 +40,10 @@ const Practice = () => {
             try {
                 setIsLoading(true);
                 const data = await axiosClient.get(`/GetCourse/${courseId}?format=json`);
-                const exercises = data.data.trainings[practiceId - 1].exercises;
-                setExercises(exercises.slice(1));
+                const exercises = data.data.trainings.find(
+                    (training) => parseInt(trainingId) === training.id,
+                ).exercises;
+                setExercises(exercises.filter((exercise) => exercise.exercise_type === 1));
                 setData(data.data);
                 setIsLoading(false);
             } catch (e) {
@@ -57,10 +67,11 @@ const Practice = () => {
             --bg-btn: #000;
         `;
         };
-    }, [courseId, practiceId]);
+    }, [courseId, trainingId]);
 
     useEffect(() => {
         listRef.current.style.transform = `translateX(-${currentExercise * 100}%)`;
+        setIsTimerActive(false);
 
         return () =>
             setTimeout(() => {
@@ -74,19 +85,25 @@ const Practice = () => {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('navs')}>
-                <p className={cx('nav')}>Главная</p>
+                <Link to="/" className={cx('nav')}>
+                    Главная
+                </Link>
                 <span className={cx('icon')}>
                     <ArrowRight />
                 </span>
-                <p className={cx('nav')}>{data?.title}</p>
+                <Link to={`/courses/${courseId}/trainings/1`} className={cx('nav')}>
+                    {data?.title}
+                </Link>
                 <span className={cx('icon')}>
                     <ArrowRight />
                 </span>
-                <p className={cx('nav')}>{data?.trainings[practiceId - 1].title}</p>
+                <Link to={`/courses/${courseId}/trainings/${trainingId}`} className={cx('nav')}>
+                    {data?.trainings[trainingId - 1].title}
+                </Link>
                 <span className={cx('icon')}>
                     <ArrowRight />
                 </span>
-                <p className={cx('nav')}>Тренировка</p>
+                <p className={cx('nav', 'active')}>Тренировка</p>
             </div>
             <div className={cx('container')}>
                 <div
@@ -126,6 +143,20 @@ const Practice = () => {
                     className={cx('next', { disable: currentExercise >= exercises?.length - 1 })}
                 >
                     <ArrowRightLarge />
+                </div>
+                <div className={cx('panel')}>
+                    <div className={cx('controls')}>
+                        {!isTimerActive && (
+                            <button className={cx('start')} onClick={() => setIsTimerActive(true)}>
+                                Начать
+                            </button>
+                        )}
+                        <EndExercises
+                            isEnd={currentExercise === exercises.length - 1}
+                            to={`/courses/${courseId}/trainings/${trainingId}`}
+                        />
+                    </div>
+                    {isTimerActive && <Timer duration={60} onClose={handleCloseTimer} />}
                 </div>
             </div>
         </div>

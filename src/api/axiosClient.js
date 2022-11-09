@@ -3,7 +3,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
 const axiosClient = axios.create({
-    baseURL: 'http://37.140.195.207/api/',
+    baseURL: 'https://www.api-box-app.fun/api/',
     headers: {
         'content-type': 'application/json',
     },

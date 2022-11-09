@@ -17,7 +17,7 @@ const Course = ({ id, photo_url, description, title, readiness }) => {
 
     const handleClick = (idCourse, readiness) => {
         if (readiness) {
-            navigate(`/courses/${idCourse}`);
+            navigate(`/courses/${idCourse}/trainings/1`);
         } else {
             toast.warn('Курс еще не готов...');
         }

@@ -40,17 +40,30 @@ body {
     text-rendering: optimizespeed;
     background-size: 1920px auto;
     background-repeat: repeat;
+    height: 100vh;
+    overflow: hidden;
 }
 
 button,
 input,
 [tabindex] {
+    font-family: 'SF Pro Text';
     outline: none;
     border: none;
 }
 
+button {
+    user-select: none;
+}
+
 a[href] {
     text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 // fonts emmbeded

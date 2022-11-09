@@ -11,9 +11,21 @@
 }
 
 .nav {
+    display: inline-block;
+    cursor: pointer;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
+    color: var(--text-primary);
+
+    &:hover {
+        color: #0056f1;
+    }
+
+    &.active {
+        color: var(--text-primary);
+        cursor: default;
+    }
 }
 
 .icon {

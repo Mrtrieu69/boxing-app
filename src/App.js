@@ -1,6 +1,6 @@
 import { createContext, Fragment, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import { ToastContainer } from 'react-toastify';
 import 'firebase/compat/auth';
@@ -26,12 +26,13 @@ function App() {
         const unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
             setIsSignedIn(!!user);
         });
+
         return () => unregisterAuthObserver();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
-        setTimeout(() => setIsLoading(false), 1500);
+        setTimeout(() => setIsLoading(false), 1000);
     }, []);
 
     if (isLoading) {
