@@ -98,7 +98,12 @@ const CoursePage = () => {
                             {data?.trainings.find((training) => parseInt(trainingId) === training.id).likes}
                         </p>
                     </div>
-                    <video ref={videoRef} className={cx('video')} controls>
+                    <video
+                        ref={videoRef}
+                        onLoadedData={(e) => (e.target.volume = 0.2)}
+                        className={cx('video')}
+                        controls
+                    >
                         <source
                             src={
                                 data?.trainings
