@@ -2,6 +2,8 @@
     position: fixed;
     inset: 0;
     z-index: 5;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     height: 100vh;
     background-color: #d9d9d9;
@@ -24,6 +26,8 @@
         width: 200%;
         height: 200%;
         background-color: #0056f1;
+        -webkit-transform: rotate(12deg);
+        -ms-transform: rotate(12deg);
         transform: rotate(12deg);
     }
 }
@@ -35,9 +39,18 @@
     width: 90%;
     height: 100%;
     z-index: 10;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 40px;
 }
@@ -83,6 +96,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 312px;
     height: 280px;
@@ -92,6 +107,8 @@
     position: absolute;
     top: 38%;
     left: 68%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 210px;
     height: 210px;
@@ -101,6 +118,8 @@
     position: absolute;
     top: 67%;
     left: 47%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 130px;
     height: 130px;

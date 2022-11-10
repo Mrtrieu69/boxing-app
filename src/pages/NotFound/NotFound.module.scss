@@ -1,6 +1,9 @@
 .wrapper {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
@@ -26,11 +29,15 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 812px;
     height: 612px;
     border-radius: 16px;
+    -webkit-box-shadow: 7px 21px 15px rgba(0, 0, 0, 0.23);
     box-shadow: 7px 21px 15px rgba(0, 0, 0, 0.23);
+    background: -o-linear-gradient(45deg, rgba(0, 86, 241, 1) 15%, rgba(217, 217, 217, 1) 41%, rgba(0, 0, 0, 1) 74%);
     background: linear-gradient(45deg, rgba(0, 86, 241, 1) 15%, rgba(217, 217, 217, 1) 41%, rgba(0, 0, 0, 1) 74%);
 }
 
@@ -38,11 +45,15 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 800px;
     height: 600px;
     border-radius: 12px;
     background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -50,8 +61,14 @@
     position: relative;
     width: 50%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -62,6 +79,8 @@
     position: absolute;
     left: 32px;
     top: 16px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     color: #000;
     z-index: 10;
@@ -71,9 +90,18 @@
     font-family: 'Poppins';
     position: absolute;
     inset: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     color: var(--text-primary);
     padding: 20px;
@@ -99,6 +127,8 @@
     border-radius: 16px;
     padding: 8px 12px;
     color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 

@@ -33,6 +33,19 @@ const Practice = () => {
 
     const handleNextExercise = () => setCurrentExercise(currentExercise + 1);
 
+    const handlePauseCurrentVideo = () => {
+        videoRefs[currentExercise].current.pause();
+    };
+
+    const handleLoadedData = (e) => {
+        e.target.volume = 0.2;
+    };
+
+    const handleStartTimer = () => {
+        setIsTimerActive(true);
+        handlePauseCurrentVideo();
+    };
+
     useEffect(() => {
         setVideoRefs((refs) =>
             Array(exercises?.length)
@@ -131,18 +144,19 @@ const Practice = () => {
                         <div ref={listRef} className={cx('list')}>
                             {isLoading ? (
                                 <div className={cx('item')}>
-                                    <div className={cx('video')}>
-                                        <LoaderBox />
-                                    </div>
+                                    <LoaderBox />
                                 </div>
                             ) : (
                                 exercises?.map((exercise, index) => (
                                     <div key={exercise.id} className={cx('item')}>
-                                        <div className={cx('video')}>
-                                            <video ref={videoRefs[index]} className={cx('video')} controls>
-                                                <source src={exercise.video_url} type="video/mp4" />
-                                            </video>
-                                        </div>
+                                        <video
+                                            onLoadedData={(e) => handleLoadedData(e)}
+                                            ref={videoRefs[index]}
+                                            className={cx('video')}
+                                            controls
+                                        >
+                                            <source src={exercise.video_url} type="video/mp4" />
+                                        </video>
                                     </div>
                                 ))
                             )}
@@ -158,16 +172,24 @@ const Practice = () => {
                 <div className={cx('panel')}>
                     <div className={cx('controls')}>
                         {!isTimerActive && (
-                            <button className={cx('start')} onClick={() => setIsTimerActive(true)}>
+                            <button className={cx('start')} onClick={handleStartTimer}>
                                 Начать
                             </button>
                         )}
                         <EndExercises
+                            onPauseCurrentVideo={handlePauseCurrentVideo}
                             isEnd={currentExercise === exercises.length - 1}
                             to={`/courses/${courseId}/trainings/${trainingId}`}
                         />
                     </div>
-                    {isTimerActive && <Timer onNext={handleNextExercise} duration={60} onClose={handleCloseTimer} />}
+                    {isTimerActive && (
+                        <Timer
+                            onLoadedData={handleLoadedData}
+                            onNext={handleNextExercise}
+                            duration={60}
+                            onClose={handleCloseTimer}
+                        />
+                    )}
                 </div>
             </div>
         </div>

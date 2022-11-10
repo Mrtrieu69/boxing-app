@@ -1,6 +1,10 @@
 .wrapper {
     height: 75px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     border-bottom: 1px solid #eaebed;
 }
@@ -8,8 +12,14 @@
 .content {
     width: 1150px;
     padding: 0 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -23,7 +33,11 @@
 }
 
 .user {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -42,11 +56,14 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
+    -o-object-fit: cover;
     object-fit: cover;
     cursor: pointer;
 }
 
 .search {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 360px;
     padding: 12px 24px;
@@ -61,8 +78,14 @@
     right: 0;
     height: 100%;
     padding: 0 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     cursor: pointer;
 }
@@ -72,6 +95,8 @@
     position: absolute;
     top: 50%;
     left: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     height: 60%;
     border-left: 1px solid #989898;
@@ -91,11 +116,16 @@
     min-width: 180px;
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
+    -webkit-box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
     box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
 }
 
 .logout {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 8px 16px;
     cursor: pointer;
@@ -107,6 +137,8 @@
 }
 
 .icon {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     margin-right: 8px;
 }

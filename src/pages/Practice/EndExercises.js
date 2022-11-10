@@ -16,7 +16,7 @@ const getRandom = (arr) => {
     return arr[random];
 };
 
-const EndExercises = ({ isEnd, to }) => {
+const EndExercises = ({ onPauseCurrentVideo, isEnd, to }) => {
     const [isShowModal, setIsShowModal] = useState(false);
     const navigate = useNavigate();
     const congratulationRef = useRef();
@@ -28,6 +28,11 @@ const EndExercises = ({ isEnd, to }) => {
 
     const handleEndExercises = () => {
         navigate(to);
+    };
+
+    const handleClick = () => {
+        setIsShowModal(true);
+        onPauseCurrentVideo();
     };
 
     useEffect(() => {
@@ -57,7 +62,7 @@ const EndExercises = ({ isEnd, to }) => {
 
     return (
         <>
-            <div onClick={() => setIsShowModal(true)} className={cx('end')}>
+            <div onClick={handleClick} className={cx('end')}>
                 {isEnd ? 'Закончить цикл тренировок' : 'Закончить тренировку'}
             </div>
             {isShowModal && (

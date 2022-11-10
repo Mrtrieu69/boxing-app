@@ -8,12 +8,16 @@ import { Modal } from '../../components';
 
 const cx = classNames.bind(styles);
 
-const Timer = ({ onNext, onClose, duration }) => {
+const Timer = ({ onLoadedData, onNext, onClose, duration }) => {
     const [seconds, setSeconds] = useState(() => parseInt(duration));
 
     const timer = useRef();
+    const audioRef = useRef();
 
-    const handleStopTimer = () => setSeconds(duration);
+    const handleReplayTimer = () => {
+        audioRef.current.load();
+        setSeconds(duration);
+    };
 
     const formatTime = (time) => {
         const minute = parseInt(time / 60);
@@ -36,7 +40,6 @@ const Timer = ({ onNext, onClose, duration }) => {
                 clearTimeout(timer.current);
             }
         };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [seconds]);
 
     return (
@@ -53,7 +56,7 @@ const Timer = ({ onNext, onClose, duration }) => {
                     </div>
                 </div>
                 <div className={cx('controllers', { done: seconds === 0 })}>
-                    <button onClick={handleStopTimer} className={cx('controller')}>
+                    <button onClick={handleReplayTimer} className={cx('controller')}>
                         Заново
                     </button>
                     {seconds === 0 && (
@@ -63,6 +66,9 @@ const Timer = ({ onNext, onClose, duration }) => {
                     )}
                 </div>
             </div>
+            <audio onLoadedData={onLoadedData} ref={audioRef} autoPlay>
+                <source src="/audio/timer.mp3" type="audio/mp3" />
+            </audio>
         </Modal>
     );
 };
