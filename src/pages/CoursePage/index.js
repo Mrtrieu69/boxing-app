@@ -113,9 +113,6 @@ const CoursePage = () => {
                             type="video/mp4"
                         />
                     </video>
-                    <div className={cx('label')}>
-                        {data?.trainings.find((training) => parseInt(trainingId) === training.id).title}
-                    </div>
                 </div>
                 <div className={cx('info')}>
                     <div className={cx('description')}>

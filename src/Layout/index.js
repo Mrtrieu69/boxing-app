@@ -10,7 +10,9 @@ const Layout = ({ children }) => {
     return (
         <div className={cx('wrapper')}>
             <Header />
-            <div className={cx('container')}>{children}</div>
+            <div className={cx('layout-scroll')}>
+                <div className={cx('container')}>{children}</div>
+            </div>
         </div>
     );
 };
