@@ -5,6 +5,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
 import styles from './Login.module.scss';
+import { Logo } from '../../components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -19,7 +20,9 @@ const Login = () => {
             <div className={cx('container')}>
                 <div className={cx('login')}>
                     <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-                    <h1 className={cx('name')}>BoxingApp</h1>
+                    <h1 className={cx('name')}>
+                        <Logo />
+                    </h1>
                     <img className={cx('gloves')} src="/images/login/gloves.png" alt="" />
                 </div>
                 <figure className={cx('banner')}>

@@ -7,8 +7,9 @@ import Tippy from '@tippyjs/react/headless';
 import { FiLogOut } from 'react-icons/fi';
 
 import styles from './Header.module.scss';
-import { Search } from '../../components/Icons';
+// import { Search } from '../../components/Icons';
 import { useRef } from 'react';
+import { Logo } from '../../components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -34,14 +35,14 @@ const Header = () => {
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
                 <Link to="/" className={cx('home')}>
-                    BoxingApp
+                    <Logo />
                 </Link>
-                <div className={cx('search')}>
+                {/* <div className={cx('search')}>
                     <input type="text" placeholder="Search" className={cx('input')} />
                     <span className={cx('icon-search')}>
                         <Search />
                     </span>
-                </div>
+                </div> */}
                 <div className={cx('user')}>
                     <p className={cx('name')}>{currentUser.multiFactor.user.displayName}</p>
                     <Tippy placement="bottom-end" interactive delay={[0, 700]} render={renderResult}>

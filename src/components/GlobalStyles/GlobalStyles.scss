@@ -16,6 +16,9 @@ html {
     font-family: 'SF Pro Text';
     font-size: 62.5%;
     color: var(--text-primary);
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 html *::-webkit-scrollbar {
