@@ -59,7 +59,7 @@ const Trainers = () => {
                             <button className={cx('follow')}>Подписаться</button>
                         </div>
                         <div className={cx('trainer-name')}>
-                            {showTrainer.patronymic} {showTrainer.name} {showTrainer.surname}
+                            {showTrainer.surname} {showTrainer.name} {showTrainer.patronymic}
                         </div>
                     </div>
                     <div className={cx('trainer-block')}>
