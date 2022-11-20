@@ -21,7 +21,6 @@ const CoursePage = () => {
         const getCourse = async () => {
             try {
                 const data = await axiosClient.get(`/GetCourse/${courseId}?format=json`);
-                console.log(data.data);
                 setData(data.data);
             } catch (e) {
                 setErrorServer(true);
@@ -66,7 +65,7 @@ const CoursePage = () => {
                     <div className={cx('trainer')}>
                         <img src={data?.trainer.photo_url} alt="" className={cx('avatar')} />
                         <h3 className={cx('name')}>
-                            {data?.trainer.name} {data?.trainer.patronymic}
+                            {data?.trainer.name} {data?.trainer.surname}
                         </h3>
                     </div>
                     <div className={cx('container')}>
