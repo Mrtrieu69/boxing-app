@@ -150,6 +150,8 @@ const Practice = () => {
                                 exercises?.map((exercise, index) => (
                                     <div key={exercise.id} className={cx('item')}>
                                         <video
+                                            preload="none"
+                                            poster="/images/videos/default-video.webp"
                                             onLoadedData={(e) => handleLoadedData(e)}
                                             ref={videoRefs[index]}
                                             className={cx('video')}

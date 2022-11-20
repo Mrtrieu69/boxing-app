@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './ErrorServer.module.scss';
+import { Logo } from '../../components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -10,7 +11,7 @@ const ErrorServer = () => {
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
                 <a href="/" className={cx('nav')}>
-                    BoxingApp
+                    <Logo />
                 </a>
                 <img className={cx('setting-1')} src="/images/notion/setting-1.png" alt="" />
                 <img className={cx('setting')} src="/images/notion/setting.png" alt="" />

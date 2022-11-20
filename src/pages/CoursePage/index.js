@@ -21,6 +21,7 @@ const CoursePage = () => {
         const getCourse = async () => {
             try {
                 const data = await axiosClient.get(`/GetCourse/${courseId}?format=json`);
+                console.log(data.data);
                 setData(data.data);
             } catch (e) {
                 setErrorServer(true);
