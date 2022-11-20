@@ -73,7 +73,7 @@ const Trainers = () => {
                                 <span className={cx('type')}>Подписчиков</span>
                             </div>
                             <div className={cx('item')}>
-                                <span className={cx('number')}>3</span>
+                                <span className={cx('number')}>16</span>
                                 <span className={cx('type')}>Опыт, лет</span>
                             </div>
                         </div>
@@ -83,7 +83,13 @@ const Trainers = () => {
                         </div>
                         <div className={cx('socials')}>
                             {showTrainer.messengers.map((messenger) => (
-                                <a key={messenger.messenger.id} href={messenger.nickname} className={cx('social')}>
+                                <a
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    key={messenger.messenger.id}
+                                    href={messenger.nickname}
+                                    className={cx('social')}
+                                >
                                     <img src={messenger.messenger.icon_url} alt="" />
                                 </a>
                             ))}

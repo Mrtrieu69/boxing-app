@@ -32,6 +32,12 @@ function App() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    useEffect(() => {
+        document.addEventListener('scroll', (e) => {
+            console.log(e.target);
+        });
+    }, []);
+
     const mobileCheck = () => {
         let check = false;
         (function (a) {
