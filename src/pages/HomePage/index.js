@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-
 import styles from './HomePage.module.scss';
 import OfflineWorkouts from './OfflineWorkouts';
 import Trainers from './Trainers';

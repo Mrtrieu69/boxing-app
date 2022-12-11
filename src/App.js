@@ -22,6 +22,8 @@ function App() {
     const [isLoading, setIsLoading] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
 
+    console.log(isSignedIn);
+
     const ROUTES = isSignedIn ? PRIVATE_ROUTES : PUBLIC_ROUTES;
     useEffect(() => {
         const unregisterAuthObserver = firebase.auth().onAuthStateChanged((user) => {
@@ -30,12 +32,6 @@ function App() {
 
         return () => unregisterAuthObserver();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    useEffect(() => {
-        document.addEventListener('scroll', (e) => {
-            console.log(e.target);
-        });
     }, []);
 
     const mobileCheck = () => {
