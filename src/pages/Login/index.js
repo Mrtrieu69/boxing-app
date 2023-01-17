@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames/bind';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/compat/app';

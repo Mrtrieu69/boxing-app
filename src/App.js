@@ -1,10 +1,10 @@
 import { createContext, Fragment, useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
-import firebase from 'firebase/compat/app';
 import { ToastContainer } from 'react-toastify';
-import 'firebase/compat/auth';
 import 'react-toastify/dist/ReactToastify.css';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
 import { PRIVATE_ROUTES, PUBLIC_ROUTES } from './routes';
 import { Loader } from './components';
@@ -21,8 +21,6 @@ function App() {
     const [isSignedIn, setIsSignedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
-
-    console.log(isSignedIn);
 
     const ROUTES = isSignedIn ? PRIVATE_ROUTES : PUBLIC_ROUTES;
     useEffect(() => {
